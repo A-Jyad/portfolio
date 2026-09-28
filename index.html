@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Personal Portfolio</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="https://placehold.co/80x80/2a2a2a/ffd700?text=AJ" alt="Ahmed Jyad" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Ahmed Jyad">Ahmed Jyad</h1>
+
+          <p class="title">Data Scientist</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:ahmed.jyad@gmail.com" class="contact-link">ahmed.jyad@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">LinkedIn</p>
+              <a href="https://www.linkedin.com/in/ahmed-jyad/" class="contact-link" target="_blank">ahmed-jyad</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Upwork</p>
+              <a href="https://www.upwork.com/freelancers/ahmedj136" class="contact-link" target="_blank">ahmedj136</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="logo-medium"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Medium</p>
+              <a href="https://medium.com/@ahmedjyad17" class="contact-link" target="_blank">@ahmedjyad17</a>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/A-Jyad" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://medium.com/@ahmedjyad17" class="social-link" target="_blank">
+              <ion-icon name="logo-medium"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://wa.me/971505173141" class="social-link" target="_blank">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://t.me/ahmedj_17" class="social-link" target="_blank">
+              <ion-icon name="paper-plane-outline"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+    <!--
+      - #MAIN CONTENT
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm a Data Scientist who builds the full picture, from the first raw table to the model that makes the call.
+            I design data architecture, automate the reporting nobody wants to do by hand, and build machine learning
+            models that forecast, classify, and predict with real business stakes behind them.
+          </p>
+          <p>
+            Since 2020, I've worked across e-commerce, real estate, and prediction markets, often as the person setting
+            things up from zero. I work mainly in Python and SQL, and I care about more than accuracy: the best model is
+            the one people trust enough to act on.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="hardware-chip-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Machine Learning</h4>
+                <p class="service-item-text">
+                  Predictive models that forecast, classify, and estimate, built for real business decisions.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data Engineering</h4>
+                <p class="service-item-text">
+                  Scalable data pipelines and architecture built from the ground up, even with zero existing infrastructure.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="bar-chart-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Dashboards & Reporting</h4>
+                <p class="service-item-text">
+                  Clear, automated dashboards that turn raw data into daily insights your team will use.
+                </p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="repeat-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Process Automation</h4>
+                <p class="service-item-text">
+                  Automated workflows for reports, payouts, and data syncing that cut out manual work.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="https://placehold.co/60x60/2a2a2a/ffd700?text=BC" alt="Brent Courson" width="60" data-testimonials-avatar>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Brent Courson</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I've worked with Ahmed on a couple of projects now and have been very happy with the work he has done.
+                    He continues to showcase his knowledge and has been a joy to work with. I've already started on the
+                    next project with him and plan to utilize his services again and again.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="https://placehold.co/60x60/2a2a2a/ffd700?text=RT" alt="Rajvansh Thapar" width="60" data-testimonials-avatar>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rajvansh Thapar</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    My experience with Ahmed was exemplary. He committed to the work from the get-go, worked diligently
+                    with me side by side and more than delivered what was expected. I recommend working with him because
+                    I know for a fact I will be back to work with him.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="https://placehold.co/80x80/2a2a2a/ffd700?text=BC" alt="Brent Courson" width="80" data-modal-img>
+              </figure>
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title>Alex Johnson</h4>
+              <time datetime="2024-01-01">1 January, 2024</time>
+              <div data-modal-text>
+                <p>
+                  Working with this developer was an incredible experience. The project was delivered on time and
+                  exceeded all our expectations. Highly professional and communicative throughout.
+                </p>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="https://www.noon.com" target="_blank">
+                <img src="./assets/images/noon-logo.png" alt="noon.com">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://www.growhub.ae" target="_blank">
+                <img src="https://growhub.ae/cdn/shop/files/Growhub_exports-21.png?v=1769676274" alt="GrowHub">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://www.revolutionre.com" target="_blank">
+                <img src="https://cdn.prod.website-files.com/6931b78aa4c6fd50f1c08963/69e0fdf9ec7cdd992e95f434_Revollution%20RE%20white.png" alt="Revolution RE">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#" target="_blank">
+                <img src="./assets/images/betsmart-logo.png" alt="BetSmart Solutions">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Heriot-Watt University — Edinburgh, UK</h4>
+              <span>2019</span>
+              <p class="timeline-text">
+                Bachelor of Science in Actuarial Science.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">IBM Certifications — Coursera</h4>
+              <span>2020</span>
+              <p class="timeline-text">
+                Databases & SQL for Data Science · Python for Data Science & AI · Data Science Methodology.
+              </p>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Data Scientist — growhub</h4>
+              <span>Mar 2025 — Present</span>
+              <p class="timeline-text">
+                Built the company's data infrastructure from scratch, unifying Shopify and Zendesk data in BigQuery and launching 10+ automated dashboards that save 15+ hours weekly. Implemented returns tracking that cut stock discrepancies by 30% and uncovered $5K in refund leakage.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Sports Data Scientist (Freelance) — BetSmart Solutions</h4>
+              <span>Aug 2023 — Present</span>
+              <p class="timeline-text">
+                Built game outcome prediction models with a 60%+ win rate and 13%+ ROI, plus fantasy points distribution and player correlation models for DFS lineup optimization. Processed 2M+ historical game records and clustered NBA and NFL teams by play style.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Data Scientist (Freelance) — Revolution RE</h4>
+              <span>Sep 2025 — Dec 2025</span>
+              <p class="timeline-text">
+                Audited data and built Linear Mixed Effects models to predict multifamily financials such as rent, taxes, and utilities across 5,000+ projects, reaching 0.85 R² on rent prediction. Results were served through a public-facing dashboard.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Data Scientist — noon</h4>
+              <span>Jan 2021 — Feb 2025</span>
+              <p class="timeline-text">
+                Designed the affiliate marketing team's data architecture, built forecasting models with 85% accuracy, and automated payouts, cutting cycle time from 90 to 30 days and saving $150K annually. Also built a fuzzy matching and geolocation algorithm to deduplicate restaurant outlets for noon Food, and led cross-company presentations.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Machine Learning Engineer — Omdena</h4>
+              <span>Jan 2020 — Sep 2020</span>
+              <p class="timeline-text">
+                Partnered with UNDP to analyze how digital restrictions affect economic development, building a decision-tree recommendation model from income and spending data.
+              </p>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <div class="skills-category-list content-card">
+
+            <div class="skill-category">
+              <h5 class="h5 skill-category-title">Languages & Tools</h5>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">BigQuery</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Excel</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h5 class="h5 skill-category-title">Machine Learning</h5>
+              <div class="skill-tags">
+                <span class="skill-tag">Predictive Modeling</span>
+                <span class="skill-tag">Time Series Forecasting</span>
+                <span class="skill-tag">Classification</span>
+                <span class="skill-tag">Clustering</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">Feature Engineering</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h5 class="h5 skill-category-title">Data Engineering</h5>
+              <div class="skill-tags">
+                <span class="skill-tag">ETL Pipelines</span>
+                <span class="skill-tag">Data Modeling</span>
+                <span class="skill-tag">Data Cleaning</span>
+                <span class="skill-tag">Data Architecture</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h5 class="h5 skill-category-title">Analytics & BI</h5>
+              <div class="skill-tags">
+                <span class="skill-tag">Statistical Analysis</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Business Intelligence</span>
+                <span class="skill-tag">Data Storytelling</span>
+                <span class="skill-tag">Dashboard Automation</span>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Machine Learning</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Data Engineering</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Research</button>
+            </li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Machine Learning</button></li>
+              <li class="select-item"><button data-select-item>Data Engineering</button></li>
+              <li class="select-item"><button data-select-item>Research</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item active" data-filter-item data-category="machine learning">
+              <a href="https://github.com/A-Jyad/Analyzing-NBA-Free-Agency" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=NBA+Free+Agency" alt="NBA Free Agency Analysis" loading="lazy">
+                </figure>
+                <h3 class="project-title">NBA Free Agency Analysis</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="machine learning">
+              <a href="https://github.com/A-Jyad/NBAPlayerClustering" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=NBA+Clustering" alt="NBA Player Clustering" loading="lazy">
+                </figure>
+                <h3 class="project-title">NBA Player Clustering</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="data engineering">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=growhub+Infrastructure" alt="growhub Data Infrastructure" loading="lazy">
+                </figure>
+                <h3 class="project-title">growhub Data Infrastructure</h3>
+                <p class="project-category">Data Engineering</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="machine learning">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=Sports+Prediction" alt="BetSmart Prediction Models" loading="lazy">
+                </figure>
+                <h3 class="project-title">Sports Outcome Prediction</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="machine learning">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=Rent+Prediction" alt="Revolution RE Rent Predictor" loading="lazy">
+                </figure>
+                <h3 class="project-title">Multifamily Rent Predictor</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="data engineering">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=Payout+Automation" alt="noon Payout Automation" loading="lazy">
+                </figure>
+                <h3 class="project-title">Ambassador Payout Automation</h3>
+                <p class="project-category">Data Engineering</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="machine learning">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://placehold.co/600x450/1e1e1e/ffd700?text=Restaurant+Deduplication" alt="noon Restaurant Deduplication" loading="lazy">
+                </figure>
+                <h3 class="project-title">Restaurant Outlet Deduplication</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="research">
+              <a href="https://medium.com/omdena/connectivity-for-all-assessment-of-the-digital-divide-and-its-impact-on-human-development-168bc93ce009" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="https://cmsnew.omdena.com/wp-content/uploads/2021/02/Images-for-blogs-9.png" alt="Digital Divide Analysis" loading="lazy">
+                </figure>
+                <h3 class="project-title">Digital Divide & Human Development</h3>
+                <p class="project-category">Research</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://ahmedjyad17.medium.com/analyzing-nba-free-agency-using-machine-learning-949cf72f3e24" target="_blank">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/1_SAd7muyKk_sHFFlCO3WqEw.webp" alt="Analyzing NBA Free Agency using Machine Learning" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Machine Learning</p>
+                    <span class="dot"></span>
+                    <time datetime="2020-08-01">Aug 2020</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Analyzing NBA Free Agency using Machine Learning</h3>
+                  <p class="blog-text">
+                    Using ML to analyze NBA free agency decisions and predict player value and fit.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/data-science/redefining-nba-player-classifications-using-clustering-36a348fa54a8" target="_blank">
+                <figure class="blog-banner-box">
+                  <img src="https://assets.insightmediagroup.io/media/wp-content/uploads/2020/11/1QBGNUsHl6A1jsd38tC3evg-scaled.jpeg" alt="Redefining NBA Player Classifications using Clustering" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Data Science</p>
+                    <span class="dot"></span>
+                    <time datetime="2020-11-01">Nov 2020</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Redefining NBA Player Classifications using Clustering</h3>
+                  <p class="blog-text">
+                    Rethinking traditional basketball positions by clustering players based on modern play style data.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/omdena/connectivity-for-all-assessment-of-the-digital-divide-and-its-impact-on-human-development-168bc93ce009" target="_blank">
+                <figure class="blog-banner-box">
+                  <img src="https://cmsnew.omdena.com/wp-content/uploads/2021/02/Images-for-blogs-9.png" alt="Connectivity for All" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Research</p>
+                    <span class="dot"></span>
+                    <time datetime="2021-02-01">Feb 2021</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Connectivity for All! The Digital Divide & Human Development</h3>
+                  <p class="blog-text">
+                    Assessing how digital restrictions impact economic development, in collaboration with UNDP.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <script src="./assets/js/script.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

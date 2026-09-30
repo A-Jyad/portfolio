@@ -25,6 +25,7 @@ const overlay = document.querySelector("[data-overlay]");
 // modal variable
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
+const modalCompany = document.querySelector("[data-modal-company]");
 const modalText = document.querySelector("[data-modal-text]");
 
 // modal toggle function
@@ -41,6 +42,7 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalCompany.innerHTML = this.querySelector("[data-testimonials-company]").innerHTML;
     modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
 
     testimonialsModalFunc();
@@ -52,6 +54,41 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
+
+
+
+// testimonials carousel variables
+const testimonialsList = document.querySelector("[data-testimonials-list]");
+const testimonialsNextBtn = document.querySelector("[data-testimonials-next]");
+let isSliding = false;
+
+// slide one card left, then move the first card to the end for an infinite loop
+testimonialsNextBtn.addEventListener("click", function () {
+
+  if (isSliding) return;
+
+  const firstItem = testimonialsList.firstElementChild;
+  const gap = parseFloat(getComputedStyle(testimonialsList).columnGap) || 0;
+  const step = firstItem.getBoundingClientRect().width + gap;
+
+  const finishSlide = function () {
+    testimonialsList.style.transition = "none";
+    testimonialsList.style.transform = "none";
+    testimonialsList.appendChild(firstItem);
+    isSliding = false;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    finishSlide();
+    return;
+  }
+
+  isSliding = true;
+  testimonialsList.style.transition = "transform 0.4s ease";
+  testimonialsList.style.transform = `translateX(-${step}px)`;
+  testimonialsList.addEventListener("transitionend", finishSlide, { once: true });
+
+});
 
 
 
@@ -115,45 +152,33 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
-}
-
-
-
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// show the page whose name matches, and highlight its nav link
+const showPage = function (pageName) {
+
+  for (let i = 0; i < pages.length; i++) {
+    if (pageName === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+      window.scrollTo(0, 0);
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+
+}
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+    showPage(this.innerHTML.toLowerCase());
   });
 }
+
+// open the page named in the URL hash (e.g. index.html#portfolio from a case study)
+const hashPage = window.location.hash.slice(1).toLowerCase();
+if (document.querySelector(`[data-page="${CSS.escape(hashPage)}"]`)) showPage(hashPage);

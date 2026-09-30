@@ -446,6 +446,8 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
+.social-item .social-link ion-icon { pointer-events: none; }
+
 
 
 
@@ -571,23 +573,56 @@ main {
 
 .testimonials-title { margin-bottom: 20px; }
 
+.testimonials-carousel {
+  position: relative;
+  margin: 0 -15px;
+  padding: 25px 15px;
+  padding-bottom: 35px;
+  overflow: hidden;
+}
+
 .testimonials-list {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 15px;
-  margin: 0 -15px;
-  padding: 25px 15px;
-  padding-bottom: 35px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
 }
 
-.testimonials-item {
-  min-width: 100%;
-  scroll-snap-align: center;
+.testimonials-item { min-width: 100%; }
+
+.testimonials-next-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--onyx);
+  border: 1px solid var(--jet);
+  border-radius: 50%;
+  box-shadow: var(--shadow-2);
+  color: var(--orange-yellow-crayola);
+  font-size: 18px;
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.testimonials-next-btn:hover,
+.testimonials-next-btn:focus-visible { background: var(--jet); }
+
+.testimonials-next-btn ion-icon {
+  --ionicon-stroke-width: 50px;
+  pointer-events: none;
+}
+
+.testimonials-item-company {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  margin-bottom: 7px;
 }
 
 .testimonials-avatar-box {
@@ -714,7 +749,8 @@ main {
 
 .modal-title { margin-bottom: 4px; }
 
-.modal-content time {
+.modal-company {
+  display: block;
   font-size: var(--fs-6);
   color: var(--light-gray-70);
   font-weight: var(--fw-300);
@@ -768,7 +804,7 @@ main {
   transition: var(--transition-1);
 }
 
-.clients-item img[alt="BetSmart Solutions"] {
+.clients-item img[alt="Betsmart Solutions"] {
   height: 65px;
 }
 
@@ -1147,7 +1183,15 @@ main {
   margin-bottom: 10px;
 }
 
-.blog-meta :is(.blog-category, time) {
+/* portfolio uses the blog card layout; the category filter toggles .active */
+.project-posts > .blog-post-item { display: none; }
+
+.project-posts > .blog-post-item.active {
+  display: block;
+  animation: scaleUp 0.25s ease forwards;
+}
+
+.blog-meta :is(.blog-category, .blog-client, time) {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
@@ -1471,12 +1515,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .testimonials-title { margin-bottom: 25px; }
 
-  .testimonials-list {
-    gap: 30px;
+  .testimonials-carousel {
     margin: 0 -30px;
     padding: 30px;
     padding-bottom: 35px;
   }
+
+  .testimonials-list { gap: 30px; }
 
   .content-card {
     padding: 30px;
@@ -1491,6 +1536,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   .testimonials-avatar-box img { width: 80px; }
 
   .testimonials-item-title {
+    margin-bottom: 4px;
+    margin-left: 95px;
+  }
+
+  .testimonials-item-company {
     margin-bottom: 10px;
     margin-left: 95px;
   }
@@ -1940,4 +1990,94 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/* keep brand names exactly as written inside capitalised titles */
+.brand {
+  display: inline;
+  text-transform: none;
+}
+
+/* clip the profile photo to the rounded avatar box */
+.avatar-box { overflow: hidden; }
+
+.avatar-box img { height: auto; object-fit: cover; }
+
+
+/*-----------------------------------*\
+  #CONTACT OPTIONS (replaces the contact form)
+\*-----------------------------------*/
+
+.contact-intro {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact-options-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.contact-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--border-gradient-onyx);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.contact-option::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--eerie-black-1);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.contact-option-text { flex: 1; min-width: 0; }
+
+.contact-option-title {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-option-handle {
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-option-arrow {
+  color: var(--orange-yellow-crayola);
+  font-size: 18px;
+  transition: var(--transition-1);
+}
+
+.contact-option:hover .contact-option-handle { color: var(--orange-yellow-crayola); }
+
+.contact-option:hover .contact-option-arrow { transform: translateX(4px); }
+
+.contact-options-list { max-width: 560px; }
+
+
+/* testimonial avatars are company logos: keep them square and fully visible */
+.testimonials-avatar-box img,
+.modal-avatar-box img {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  padding: 10px;
 }

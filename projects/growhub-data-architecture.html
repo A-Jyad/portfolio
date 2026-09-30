@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>growhub.ae Data Architecture - Ahmed Jyad</title>
+  <meta name="description" content="Case study: a data platform for growhub.ae that unifies Shopify, Excel and GA4 in BigQuery and dbt, powers Looker Studio dashboards, and runs for about $1 a day.">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/case-study.css">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cs-page">
+
+    <a href="../index.html#portfolio" class="cs-back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back to portfolio</span>
+    </a>
+
+    <article class="cs-article">
+
+      <!--
+        - #HERO
+      -->
+
+      <header class="cs-hero">
+
+        <p class="cs-eyebrow">Case Study &middot; Data Architecture</p>
+
+        <h1 class="cs-title">
+          One trusted source of data for growhub.ae, running for $1 a day
+        </h1>
+
+        <p class="cs-lede">
+          growhub.ae had no data team and no data infrastructure. I designed and built its data platform from scratch,
+          and it now powers every report the business uses.
+        </p>
+
+        <dl class="cs-meta">
+          <div class="cs-meta-item">
+            <dt>Client</dt>
+            <dd>growhub.ae</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Industry</dt>
+            <dd>E-commerce, UAE</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Role</dt>
+            <dd>Sole data owner</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Timeline</dt>
+            <dd>Mar 2025 &mdash; Present</dd>
+          </div>
+        </dl>
+
+      </header>
+
+
+      <!--
+        - #KEY RESULTS
+      -->
+
+      <section class="cs-impact" aria-label="Results: before and after">
+
+        <div class="cs-impact-head" aria-hidden="true">
+          <span>Before</span>
+          <span></span>
+          <span>After</span>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Reports stitched together by hand</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>15+ hrs</strong><span>saved every week</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Stock counts that never matched the shelf</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>30%</strong><span>fewer stock discrepancies</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Refunds paid out with no checks</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>$5K</strong><span>in refund leakage found</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">No data infrastructure at all</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>$1/day</strong><span>for the whole warehouse</span></p>
+        </div>
+
+      </section>
+
+
+      <!--
+        - #IN SHORT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">In Short</h2>
+
+        <div class="cs-brief">
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The problem</p>
+            <p>
+              Sales were in Shopify, logistics and complaints in hand-typed Excel sheets, and web traffic in GA4.
+              Every report was stitched together by hand, and different sheets gave different answers.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">What I built</p>
+            <p>
+              An automated platform that brings all of it into one warehouse every hour, checks the spreadsheet data
+              for mistakes, and feeds more than ten Looker Studio dashboards.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The result</p>
+            <p>
+              Reports that build themselves, one set of numbers for every team, and money that was quietly being
+              lost, now found. All for about $30 a month.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #WHAT IT UNCOVERED
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">What It Uncovered</h2>
+
+        <p>
+          Once the data finally met in one place, problems that no single system could show became obvious.
+          growhub.ae delivers with its own drivers, who bring returned items back to the warehouse. Logistics logged
+          those returns in Excel, but Shopify's stock count was often never updated:
+        </p>
+
+        <div class="cs-compare" aria-label="Example: a return logged in Excel but missing from Shopify stock">
+          <div class="cs-compare-item">
+            <p class="cs-compare-label">Example: one product, two different stock counts</p>
+            <p class="cs-compare-row"><span>Shopify</span><strong>4 in stock</strong><em class="is-down">missing the return</em></p>
+            <p class="cs-compare-row"><span>Shelf</span><strong>5 in stock</strong><em class="is-up">return logged in Excel</em></p>
+          </div>
+          <p class="cs-compare-note">
+            Across many products, gaps like this make items look closer to selling out than they are, and stock gets
+            reordered too early. Unmatched returns are now flagged automatically, which cut stock discrepancies by
+            30%. The same check found $5K in refunds that had been paid out with no return ever logged.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!--
+        - #ARCHITECTURE
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">How It Works</h2>
+
+        <p>
+          A layered design on Google Cloud. Each layer has one job, and data only flows downwards:
+        </p>
+
+        <figure class="cs-layers" aria-label="Layered architecture: sources, ingestion, raw data, staging with quality checks, analytics tables, and dashboards">
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Sources</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Shopify</span>
+              <span class="cs-node">Excel master sheet</span>
+              <span class="cs-node">Excel complaints sheet</span>
+              <span class="cs-node">GA4</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Ingest</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Python extractor on Cloud Run, hourly</span>
+              <span class="cs-node">GA4 native export</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Raw</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">BigQuery, stored as received</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Staging</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">dbt: cleaned and typed</span>
+              <span class="cs-node">Data quality checks</span>
+            </div>
+          </div>
+
+          <div class="cs-layer is-hub">
+            <p class="cs-layer-name">Analytics</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Facts</span>
+              <span class="cs-node">Dimensions</span>
+              <span class="cs-node">Aggregates</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Serve</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Looker Studio dashboards</span>
+              <span class="cs-node">Exceptions report</span>
+            </div>
+          </div>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #DESIGN DECISIONS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Key Decisions</h2>
+
+        <div class="cs-decisions">
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Custom extractor, not a paid connector</h3>
+            <p>No monthly licence for a small business, and full control over what is pulled from Shopify.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> maintained in-house when the API changes.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">ELT: load raw, model in dbt</h3>
+            <p>All business logic is SQL in one place, so a changed rule rebuilds history in minutes.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> raw data stays messy, so nobody reports from it directly.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Incremental, idempotent loads</h3>
+            <p>Only changed records are pulled and MERGEd on their key, so any run can be repeated safely.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Serverless, hourly, deployed from Git</h3>
+            <p>A Cloud Run Job on a schedule, redeployed by Cloud Build on every commit. No servers to maintain.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> data can be up to an hour old, fine for daily decisions.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #RECONCILIATION + MODEL
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Making the Sources Agree</h2>
+
+        <ul class="cs-points">
+          <li>
+            <strong>Cash on delivery.</strong> Drivers' collections are typed as free text such as "117+118+65". SQL
+            parses them and matches them to orders, giving the true amount paid.
+          </li>
+          <li>
+            <strong>GA4 and Shopify.</strong> With no shared ID, sessions and orders are matched by day and campaign,
+            giving conversion rate and revenue by channel.
+          </li>
+          <li>
+            <strong>Complaints.</strong> Complaints that mention several orders are split and linked back, so every
+            order carries a complaint flag.
+          </li>
+          <li>
+            <strong>Spreadsheet governance.</strong> Locked templates, drop-down validation and named owners at entry,
+            then automatic checks on every load. Rows that fail go to an exceptions report for the owner to fix.
+          </li>
+        </ul>
+
+        <details class="cs-details">
+          <summary>See the data model</summary>
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col">Table</th>
+                  <th scope="col">One row per</th>
+                  <th scope="col">Used for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>fct_orders</code></td>
+                  <td>Order</td>
+                  <td>Revenue, refunds, amount paid, delivery time, complaint flag</td>
+                </tr>
+                <tr>
+                  <td><code>fct_order_lines</code></td>
+                  <td>Order line</td>
+                  <td>Product and variant sales, discounts</td>
+                </tr>
+                <tr>
+                  <td><code>fct_complaints</code></td>
+                  <td>Complaint</td>
+                  <td>Complaint categories, linked to orders</td>
+                </tr>
+                <tr>
+                  <td><code>dim_customers</code></td>
+                  <td>Customer</td>
+                  <td>Order history, RFM segment, value tier</td>
+                </tr>
+                <tr>
+                  <td><code>dim_products</code></td>
+                  <td>Product variant</td>
+                  <td>Sales velocity, days of stock remaining</td>
+                </tr>
+                <tr>
+                  <td><code>agg_daily_sales</code></td>
+                  <td>Day and emirate</td>
+                  <td>Executive KPIs and on-time delivery</td>
+                </tr>
+                <tr>
+                  <td><code>agg_cohort_retention</code></td>
+                  <td>Cohort and month</td>
+                  <td>Repeat-customer retention</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+      </section>
+
+
+      <!--
+        - #TECH STACK
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tech Stack</h2>
+
+        <ul class="cs-tags">
+          <li class="skill-tag">BigQuery</li>
+          <li class="skill-tag">dbt</li>
+          <li class="skill-tag">SQL</li>
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">Shopify Admin API</li>
+          <li class="skill-tag">GA4</li>
+          <li class="skill-tag">Excel</li>
+          <li class="skill-tag">Docker</li>
+          <li class="skill-tag">Cloud Run</li>
+          <li class="skill-tag">Cloud Build</li>
+          <li class="skill-tag">Looker Studio</li>
+        </ul>
+
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cs-cta">
+
+        <h2 class="cs-cta-title">Is your data scattered across tools and spreadsheets?</h2>
+
+        <p>I design data platforms that small teams can trust, afford and run without a data department.</p>
+
+        <a href="../index.html#contact" class="cs-cta-btn">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+          <span>Get in touch</span>
+        </a>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

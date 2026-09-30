@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Three restaurant listings from different platforms merge into one outlet on a map">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26262a"/>
+      <stop offset="1" stop-color="#161618"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd970" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffc55c" stop-opacity="0.05"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <g font-family="Poppins, 'Segoe UI', Arial, sans-serif">
+
+    <!-- ── Listings ────────────────────────────────────────── -->
+    <g fill="#2b2b2e" stroke="#3a3a3d" stroke-width="1.5">
+      <rect x="50" y="92"  width="250" height="80" rx="12"/>
+      <rect x="50" y="210" width="250" height="80" rx="12"/>
+      <rect x="50" y="328" width="250" height="80" rx="12"/>
+    </g>
+    <g fill="#ffd970" font-size="13" font-weight="600" letter-spacing="1.5">
+      <text x="72" y="122">TALABAT</text>
+      <text x="72" y="240">ZOMATO</text>
+      <text x="72" y="358">CAREEM</text>
+    </g>
+    <g fill="#f5f5f5" font-size="18" font-weight="500">
+      <text x="72" y="152">Zaatar Street Kitchen</text>
+      <text x="72" y="270">Zaatar St. Kitchen</text>
+      <text x="72" y="388">Kitchen Zaatar Street</text>
+    </g>
+
+    <!-- merge lines into the map -->
+    <path d="M300 132 C 360 132, 370 250, 424 250 M300 250 H424 M300 368 C 360 368, 370 250, 424 250" fill="none" stroke="#cdb45e" stroke-width="2" stroke-opacity="0.8"/>
+    <path d="M422 243 L432 250 L422 257 Z" fill="#cdb45e"/>
+
+    <!-- ── Map panel ───────────────────────────────────────── -->
+    <rect x="446" y="70" width="304" height="360" rx="14" fill="#232326" stroke="#cdb45e" stroke-width="1.8"/>
+    <rect x="447" y="71" width="302" height="358" rx="13" fill="url(#grid)"/>
+    <!-- streets -->
+    <g stroke="#3a3a3d" stroke-width="10" stroke-linecap="round" fill="none">
+      <path d="M470 180 H730"/>
+      <path d="M560 90 V410"/>
+      <path d="M470 330 C 560 320, 640 350, 730 300"/>
+    </g>
+
+    <!-- three faint source pins, slightly apart -->
+    <g fill="#9a9a9e" fill-opacity="0.55">
+      <circle cx="622" cy="236" r="7"/>
+      <circle cx="642" cy="226" r="7"/>
+      <circle cx="630" cy="252" r="7"/>
+    </g>
+    <circle cx="632" cy="238" r="42" fill="url(#hub)" stroke="#cdb45e" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+    <!-- merged pin -->
+    <path d="M632 150 C 612 150, 598 165, 598 184 C 598 208, 632 232, 632 232 C 632 232, 666 208, 666 184 C 666 165, 652 150, 632 150 Z" fill="#ffd970"/>
+    <circle cx="632" cy="184" r="11" fill="#232326"/>
+
+    <!-- label -->
+    <rect x="566" y="300" width="132" height="54" rx="10" fill="#2b2b2e" stroke="#4a4536" stroke-width="1.2"/>
+    <text x="632" y="322" text-anchor="middle" fill="#ffd970" font-size="13" font-weight="600" letter-spacing="1.2">OUTLET #1</text>
+    <text x="632" y="342" text-anchor="middle" fill="#f0e2b8" font-size="13">3 listings &#8594; 1</text>
+
+  </g>
+</svg>

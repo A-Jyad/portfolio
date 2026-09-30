@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>noon Affiliate Payouts - Ahmed Jyad</title>
+  <meta name="description" content="Case study: automating noon's monthly affiliate payouts end to end, from SQL payout calculations to finance and affiliate reports, plus sales forecasts for budget planning.">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/case-study.css">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cs-page">
+
+    <a href="../index.html#portfolio" class="cs-back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back to portfolio</span>
+    </a>
+
+    <article class="cs-article">
+
+      <!--
+        - #HERO
+      -->
+
+      <header class="cs-hero">
+
+        <p class="cs-eyebrow">Case Study &middot; Data Engineering</p>
+
+        <h1 class="cs-title">
+          From 90 days to 30: automating affiliate payouts at <span class="brand">noon</span>
+        </h1>
+
+        <p class="cs-lede">
+          noon paid its affiliates every month based on performance, and every payout passed through several
+          teams by hand. I automated the whole chain and owned it, from the payout calculations to the reports for
+          finance and every affiliate, plus the forecasts finance used to plan the budget.
+        </p>
+
+        <dl class="cs-meta">
+          <div class="cs-meta-item">
+            <dt>Client</dt>
+            <dd>noon</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Team</dt>
+            <dd>Affiliate marketing</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Role</dt>
+            <dd>Data Scientist, process owner</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Timeline</dt>
+            <dd>2021 &mdash; 2025</dd>
+          </div>
+        </dl>
+
+      </header>
+
+
+      <!--
+        - #IMPACT
+      -->
+
+      <section class="cs-impact" aria-label="Results: before and after">
+
+        <div class="cs-impact-head" aria-hidden="true">
+          <span>Before</span>
+          <span></span>
+          <span>After</span>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Affiliates waited around three months to be paid</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>30 days</strong><span>from month-end to payment</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Calculations and hand-offs done by hand every month</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>$150K</strong><span>saved every year</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Finance had no reliable early view of the bill</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>&le;10%</strong><span>forecast error against month-end actuals</span></p>
+        </div>
+
+        <div class="cs-impact-row">
+          <p class="cs-impact-before">Payout reports built one affiliate at a time</p>
+          <ion-icon class="cs-impact-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <p class="cs-impact-after"><strong>Automatic</strong><span>reports to finance and every affiliate</span></p>
+        </div>
+
+      </section>
+
+
+      <!--
+        - #IN SHORT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">In Short</h2>
+
+        <div class="cs-brief">
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The problem</p>
+            <p>
+              Each month, payouts had to be calculated, requested from finance, approved and paid to each affiliate,
+              then explained to them. Every hand-off was manual, so payments took around three months.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">What I built</p>
+            <p>
+              SQL that calculates every payout, automated emails that send finance the full payout request and each
+              affiliate their own report, and sales forecasts that tell finance the bill before the month closes.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The result</p>
+            <p>
+              Affiliates paid three times faster, $150K saved every year, and a budget estimate finance could trust,
+              landing within 10% of the final figure.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #HOW IT WORKS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">How It Works</h2>
+
+        <figure class="cs-layers" aria-label="Monthly cycle: data, forecast, SQL payout calculation, automated request to finance, payment, and automated affiliate reports">
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Data</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Affiliate sales</span>
+              <span class="cs-node">Commission rules</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Forecast</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Sales forecast &rarr; budget estimate to finance</span>
+            </div>
+          </div>
+
+          <div class="cs-layer is-hub">
+            <p class="cs-layer-name">Calculate</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">SQL payout engine, per affiliate</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Request</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Automated payout report to finance</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Pay</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Finance processes each affiliate</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Report</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Automated statement to every affiliate</span>
+            </div>
+          </div>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #KEY DECISIONS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Key Decisions</h2>
+
+        <div class="cs-decisions">
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">All payout logic in one place</h3>
+            <p>Every commission rule lives in SQL, so finance, the affiliate team and affiliates always see the same number, and any figure can be traced.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> rule changes need a code change, not a spreadsheet edit.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Automate every hand-off</h3>
+            <p>Anything that used to be copied, pasted or emailed by hand became an automated step, from the finance request to each affiliate's statement.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> late source data has to be caught before the emails go out.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Give finance the number early</h3>
+            <p>A sales forecast estimates the payout before the month closes, so the budget is reserved before it is needed.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> an estimate, not the final figure, within about 10%.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">One owner, end to end</h3>
+            <p>I owned the process from data to payout, so there were no gaps between teams where a payment could stall.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> relies on clear documentation for hand-over.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #TECH STACK
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tech Stack</h2>
+
+        <ul class="cs-tags">
+          <li class="skill-tag">SQL</li>
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">Email automation</li>
+          <li class="skill-tag">Time series forecasting</li>
+        </ul>
+
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cs-cta">
+
+        <h2 class="cs-cta-title">Is a monthly process eating your team's time?</h2>
+
+        <p>I automate the calculations, reports and hand-offs so the work runs itself.</p>
+
+        <a href="../index.html#contact" class="cs-cta-btn">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+          <span>Get in touch</span>
+        </a>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

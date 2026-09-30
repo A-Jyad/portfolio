@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Data architecture: Shopify, Excel and GA4 flow into BigQuery, are modelled in dbt, and served in Looker Studio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26262a"/>
+      <stop offset="1" stop-color="#161618"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd970" stop-opacity="0.28"/>
+      <stop offset="0.6" stop-color="#ffc55c" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffc55c" stop-opacity="0.04"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <!-- background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#dots)"/>
+
+  <g font-family="Poppins, 'Segoe UI', Arial, sans-serif">
+
+    <!-- ── Sources ─────────────────────────────────────────── -->
+    <g fill="#2b2b2e" stroke="#3a3a3d" stroke-width="1.5">
+      <rect x="80"  y="50" width="196" height="58" rx="12"/>
+      <rect x="302" y="50" width="196" height="58" rx="12"/>
+      <rect x="524" y="50" width="196" height="58" rx="12"/>
+    </g>
+    <g fill="#ffd970">
+      <circle cx="112" cy="79" r="5"/>
+      <circle cx="334" cy="79" r="5"/>
+      <circle cx="556" cy="79" r="5"/>
+    </g>
+    <g fill="#f5f5f5" font-size="21" font-weight="500">
+      <text x="128" y="86">Shopify</text>
+      <text x="350" y="86">Excel</text>
+      <text x="572" y="86">GA4</text>
+    </g>
+
+    <!-- merge connector -->
+    <path d="M178 108 V128 H622 V108 M400 108 V128 M400 128 V146" fill="none" stroke="#cdb45e" stroke-width="2" stroke-opacity="0.8"/>
+    <path d="M393 144 L400 154 L407 144 Z" fill="#cdb45e"/>
+
+    <!-- ── Raw: BigQuery ───────────────────────────────────── -->
+    <rect x="80" y="160" width="640" height="58" rx="12" fill="#2b2b2e" stroke="#3a3a3d" stroke-width="1.5"/>
+    <text x="108" y="196" fill="#f5f5f5" font-size="21" font-weight="500">BigQuery</text>
+    <text x="214" y="196" fill="#9a9a9e" font-size="17">raw</text>
+    <!-- table glyph -->
+    <g fill="none" stroke="#6f6f74" stroke-width="1.5">
+      <rect x="648" y="176" width="44" height="26" rx="3"/>
+      <path d="M648 185 H692 M648 194 H692 M663 176 V202 M678 176 V202"/>
+    </g>
+
+    <path d="M400 218 V244" stroke="#cdb45e" stroke-width="2" stroke-opacity="0.8"/>
+    <path d="M393 242 L400 252 L407 242 Z" fill="#cdb45e"/>
+
+    <!-- ── Analytics: dbt (highlighted) ────────────────────── -->
+    <rect x="80" y="258" width="640" height="68" rx="12" fill="url(#hub)" stroke="#cdb45e" stroke-width="1.8"/>
+    <text x="108" y="299" fill="#ffd970" font-size="23" font-weight="600">dbt</text>
+    <text x="156" y="299" fill="#f0e2b8" font-size="17">analytics</text>
+    <g font-size="15" font-weight="500" text-anchor="middle">
+      <rect x="470" y="275" width="70" height="34" rx="8" fill="#2b2b2e" stroke="#4a4536" stroke-width="1.2"/>
+      <text x="505" y="297" fill="#f5f5f5">fct</text>
+      <rect x="552" y="275" width="70" height="34" rx="8" fill="#2b2b2e" stroke="#4a4536" stroke-width="1.2"/>
+      <text x="587" y="297" fill="#f5f5f5">dim</text>
+      <rect x="634" y="275" width="70" height="34" rx="8" fill="#2b2b2e" stroke="#4a4536" stroke-width="1.2"/>
+      <text x="669" y="297" fill="#f5f5f5">agg</text>
+    </g>
+
+    <path d="M400 326 V352" stroke="#cdb45e" stroke-width="2" stroke-opacity="0.8"/>
+    <path d="M393 350 L400 360 L407 350 Z" fill="#cdb45e"/>
+
+    <!-- ── Serve: Looker Studio ────────────────────────────── -->
+    <rect x="80" y="366" width="640" height="84" rx="12" fill="#2b2b2e" stroke="#3a3a3d" stroke-width="1.5"/>
+    <text x="108" y="414" fill="#f5f5f5" font-size="21" font-weight="500">Looker Studio</text>
+    <!-- mini bar chart -->
+    <g fill="#ffd970">
+      <rect x="500" y="414" width="14" height="20" rx="3" fill-opacity="0.55"/>
+      <rect x="520" y="404" width="14" height="30" rx="3" fill-opacity="0.7"/>
+      <rect x="540" y="396" width="14" height="38" rx="3" fill-opacity="0.85"/>
+      <rect x="560" y="386" width="14" height="48" rx="3"/>
+    </g>
+    <!-- sparkline -->
+    <polyline points="598,426 618,414 636,420 656,400 676,406 694,388" fill="none" stroke="#cdb45e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="694" cy="388" r="4" fill="#ffd970"/>
+
+  </g>
+</svg>

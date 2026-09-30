@@ -2080,4 +2080,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   height: auto;
   object-fit: contain;
   padding: 10px;
+  /* recolour to the site gold (#ffd970, --orange-yellow-crayola) */
+  filter: brightness(0) saturate(100%) invert(88%) sepia(73%) saturate(665%) hue-rotate(310deg) brightness(112%);
 }
+
+/* the Upwork mark fills its box more than the others, so give it extra room */
+.testimonials-avatar-box img[src*="upwork-logo"],
+.modal-avatar-box img[src*="upwork-logo"] { padding: 15px; }

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>noon Food Outlet Matching - Ahmed Jyad</title>
+  <meta name="description" content="Case study: combining fuzzy name matching and geolocation to turn restaurant listings scraped from Talabat, Zomato and Careem into one clean outlet database for noon Food.">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/case-study.css">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cs-page">
+
+    <a href="../index.html#portfolio" class="cs-back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back to portfolio</span>
+    </a>
+
+    <article class="cs-article">
+
+      <!--
+        - #HERO
+      -->
+
+      <header class="cs-hero">
+
+        <p class="cs-eyebrow">Case Study &middot; Machine Learning</p>
+
+        <h1 class="cs-title">
+          One restaurant, one record: a clean outlet map for <span class="brand">noon</span> Food from three messy platforms
+        </h1>
+
+        <p class="cs-lede">
+          noon Food scraped every restaurant outlet listed on Talabat, Zomato and Careem, but the same restaurant
+          appeared again and again under different names and pins. I built the matching algorithm that turned those
+          listings into one clean database of every outlet in the city.
+        </p>
+
+        <dl class="cs-meta">
+          <div class="cs-meta-item">
+            <dt>Client</dt>
+            <dd>noon Food</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Industry</dt>
+            <dd>Food delivery</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Role</dt>
+            <dd>Data Scientist</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Sources</dt>
+            <dd>Talabat, Zomato, Careem</dd>
+          </div>
+        </dl>
+
+      </header>
+
+
+      <!--
+        - #EXAMPLE
+      -->
+
+      <figure class="cs-merge cs-merge-hero" aria-label="Example: three listings of the same restaurant merged into one outlet record">
+
+        <div class="cs-merge-grid">
+
+          <div class="cs-merge-sources">
+            <p class="cs-estimate-label">Scraped listings</p>
+            <div class="cs-merge-card">
+              <span class="cs-merge-tag">Talabat</span>
+              <p class="cs-merge-name">Zaatar Street Kitchen Restaurant</p>
+              <p class="cs-merge-meta">25.2048, 55.2708</p>
+            </div>
+            <div class="cs-merge-card">
+              <span class="cs-merge-tag">Zomato</span>
+              <p class="cs-merge-name">Zaatar St. Kitchen</p>
+              <p class="cs-merge-meta">25.2051, 55.2711</p>
+            </div>
+            <div class="cs-merge-card">
+              <span class="cs-merge-tag">Careem</span>
+              <p class="cs-merge-name">Kitchen Zaatar Street</p>
+              <p class="cs-merge-meta">25.2046, 55.2705</p>
+            </div>
+          </div>
+
+          <div class="cs-diagram-arrow" aria-hidden="true">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+
+          <div>
+            <p class="cs-estimate-label">One outlet</p>
+            <div class="cs-merge-card is-result">
+              <span class="cs-merge-tag">Outlet #1</span>
+              <p class="cs-merge-name">Zaatar Street Kitchen</p>
+              <p class="cs-merge-meta">On Talabat, Zomato and Careem</p>
+              <p class="cs-merge-meta">Details combined from all three</p>
+            </div>
+          </div>
+
+        </div>
+
+        <figcaption class="cs-caption">An illustrative restaurant: three listings, three spellings, three pins, one real outlet.</figcaption>
+
+      </figure>
+
+
+      <!--
+        - #IN SHORT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">In Short</h2>
+
+        <div class="cs-brief">
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The problem</p>
+            <p>
+              Most restaurants list on several platforms, and scraped data is messy. Names, spellings and map pins
+              never match exactly, so no simple lookup could tell which listings were the same outlet.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">What I built</p>
+            <p>
+              A matching algorithm that treats two listings as the same outlet only when their names are similar
+              and their locations are close, then merges each group into a single record.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The result</p>
+            <p>
+              One record per real outlet, with everything each platform knew about it, and a map of the whole
+              city's restaurant market, including which platforms every outlet was already on.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #KEY INSIGHT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">The Key Insight</h2>
+
+        <p>
+          Neither signal works on its own. Names alone would merge every branch of a chain; locations alone would
+          merge every restaurant in a food court. Only when both agree is it the same outlet:
+        </p>
+
+        <div class="cs-matrix" role="table" aria-label="Decision matrix: name similarity against distance">
+          <div class="cs-matrix-row" role="row">
+            <span role="columnheader"></span>
+            <span class="cs-matrix-head" role="columnheader">Close together</span>
+            <span class="cs-matrix-head" role="columnheader">Far apart</span>
+          </div>
+          <div class="cs-matrix-row" role="row">
+            <span class="cs-matrix-head" role="rowheader">Similar name</span>
+            <span class="cs-matrix-cell is-yes" role="cell"><strong>Merge</strong>Same outlet on two platforms</span>
+            <span class="cs-matrix-cell" role="cell"><strong>Keep apart</strong>Two branches of a chain</span>
+          </div>
+          <div class="cs-matrix-row" role="row">
+            <span class="cs-matrix-head" role="rowheader">Different name</span>
+            <span class="cs-matrix-cell" role="cell"><strong>Keep apart</strong>Neighbours in a food court</span>
+            <span class="cs-matrix-cell" role="cell"><strong>Keep apart</strong>Unrelated restaurants</span>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!--
+        - #HOW IT WORKS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">How It Works</h2>
+
+        <figure class="cs-layers" aria-label="Pipeline: scraped listings are cleaned, nearby candidates found, names fuzzy-matched, matches grouped, and merged into one record per outlet">
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Sources</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Talabat</span>
+              <span class="cs-node">Zomato</span>
+              <span class="cs-node">Careem</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Clean</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Standardise names</span>
+              <span class="cs-node">Drop filler words</span>
+              <span class="cs-node">Align coordinates</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Nearby</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Compare only listings a short distance apart</span>
+            </div>
+          </div>
+
+          <div class="cs-layer is-hub">
+            <p class="cs-layer-name">Match</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Fuzzy name score</span>
+              <span class="cs-node">+ distance check</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Group</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">A = B and B = C, so one outlet</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Output</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">One record per outlet</span>
+              <span class="cs-node">Platforms listed on</span>
+              <span class="cs-node">City outlet map</span>
+            </div>
+          </div>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #KEY DECISIONS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Key Decisions</h2>
+
+        <div class="cs-decisions">
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Location first, names second</h3>
+            <p>Only listings near each other are compared. That skips almost every impossible pair across the city and keeps chain branches apart.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> an outlet pinned badly on one platform can be missed.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Fuzzy, not exact, names</h3>
+            <p>Fuzzy matching tolerates typos, reordered words and extras like "Restaurant", which exact matching never could.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> thresholds need tuning so similar names don't over-merge.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Group matches, don't just pair them</h3>
+            <p>Linked matches become one group, so an outlet on three platforms, or listed twice on one, collapses into a single record.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> one bad link can join two groups, so match rules stay strict.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Keep every source's data</h3>
+            <p>The merged record combines what each platform knew and notes where the outlet is listed, instead of picking one source.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> conflicting values need a rule for which source wins.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #TECH STACK
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tech Stack</h2>
+
+        <ul class="cs-tags">
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">pandas</li>
+          <li class="skill-tag">Fuzzy string matching</li>
+          <li class="skill-tag">Geospatial distance</li>
+          <li class="skill-tag">Entity resolution</li>
+          <li class="skill-tag">Web-scraped data</li>
+        </ul>
+
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cs-cta">
+
+        <h2 class="cs-cta-title">Messy data from many sources?</h2>
+
+        <p>I turn overlapping, inconsistent datasets into one clean record per real-world thing.</p>
+
+        <a href="../index.html#contact" class="cs-cta-btn">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+          <span>Get in touch</span>
+        </a>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

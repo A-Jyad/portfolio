@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Prediction Market Models - Ahmed Jyad</title>
+  <meta name="description" content="Case study: three prediction market models for WNBA and MLB games that find mispriced contracts, each profitable on seasons they never saw during development.">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/case-study.css">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cs-page">
+
+    <a href="../index.html#portfolio" class="cs-back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back to portfolio</span>
+    </a>
+
+    <article class="cs-article">
+
+      <!--
+        - #HERO
+      -->
+
+      <header class="cs-hero">
+
+        <p class="cs-eyebrow">Case Study &middot; Machine Learning</p>
+
+        <h1 class="cs-title">
+          Three prediction market models, each profitable on seasons they never saw
+        </h1>
+
+        <p class="cs-lede">
+          For Betsmart Solutions I built models that price WNBA and MLB games, compare that price with the market,
+          and flag contracts the market has priced wrong. Every model was tested season by season on data it had
+          never seen, and all three made money.
+        </p>
+
+        <dl class="cs-meta">
+          <div class="cs-meta-item">
+            <dt>Client</dt>
+            <dd>Betsmart Solutions</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Markets</dt>
+            <dd>WNBA &amp; MLB game outcomes</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Role</dt>
+            <dd>Sports Data Scientist</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Timeline</dt>
+            <dd>2023 &mdash; Present</dd>
+          </div>
+        </dl>
+
+      </header>
+
+
+      <!--
+        - #MODELS
+      -->
+
+      <section class="cs-models" aria-label="Performance of the three models">
+
+        <div class="cs-model">
+          <p class="cs-model-name">WNBA moneyline</p>
+          <p class="cs-model-what">Which team wins</p>
+          <p class="cs-model-return">+23.7%<span>return</span></p>
+          <div class="cs-model-bars" role="img" aria-label="Return by season 2020 to 2026: 47%, 11%, 12%, 24%, 24%, 28%, 34%">
+            <span style="--h: 100%" title="2020: +47.3%"></span>
+            <span style="--h: 23%" title="2021: +10.8%"></span>
+            <span style="--h: 26%" title="2022: +12.3%"></span>
+            <span style="--h: 51%" title="2023: +23.9%"></span>
+            <span style="--h: 50%" title="2024: +23.6%"></span>
+            <span class="is-sealed" style="--h: 58%" title="2025 (sealed): +27.5%"></span>
+            <span class="is-sealed" style="--h: 73%" title="2026 (sealed): +34.4%"></span>
+          </div>
+          <dl class="cs-model-facts">
+            <div><dt>Trades</dt><dd>569</dd></div>
+            <div><dt>Profitable seasons</dt><dd>7 of 7</dd></div>
+            <div><dt>Sealed return</dt><dd>+29.7%</dd></div>
+            <div><dt>Avg entry price</dt><dd>28&cent;</dd></div>
+          </dl>
+        </div>
+
+        <div class="cs-model">
+          <p class="cs-model-name">WNBA spread</p>
+          <p class="cs-model-what">Which team beats the points line</p>
+          <p class="cs-model-return">+9.9%<span>return</span></p>
+          <div class="cs-model-bars" role="img" aria-label="Return by season 2018 to 2026: 18%, 7%, -4%, 20%, 9%, 12%, 11%, 8%, 7%">
+            <span style="--h: 38.5%" title="2018: +18.2%"></span>
+            <span style="--h: 14.2%" title="2019: +6.7%"></span>
+            <span class="is-neg" style="--h: 9.3%" title="2020: -4.4%"></span>
+            <span style="--h: 42.5%" title="2021: +20.1%"></span>
+            <span style="--h: 18.6%" title="2022: +8.8%"></span>
+            <span style="--h: 26.2%" title="2023: +12.4%"></span>
+            <span class="is-sealed" style="--h: 23.9%" title="2024 (sealed): +11.3%"></span>
+            <span class="is-sealed" style="--h: 16.1%" title="2025 (sealed): +7.6%"></span>
+            <span class="is-sealed" style="--h: 14.4%" title="2026 (sealed): +6.8%"></span>
+          </div>
+          <dl class="cs-model-facts">
+            <div><dt>Trades</dt><dd>1,024</dd></div>
+            <div><dt>Profitable seasons</dt><dd>8 of 9</dd></div>
+            <div><dt>Sealed return</dt><dd>+8.7%</dd></div>
+            <div><dt>Win rate</dt><dd>56.6%</dd></div>
+          </dl>
+        </div>
+
+        <div class="cs-model">
+          <p class="cs-model-name">MLB moneyline</p>
+          <p class="cs-model-what">Which team wins</p>
+          <p class="cs-model-return">+8.2%<span>return</span></p>
+          <div class="cs-model-bars" role="img" aria-label="Return by season 2023 to 2026: 7%, 10%, 6%, 12%">
+            <span style="--h: 15.6%" title="2023: +7.4%"></span>
+            <span style="--h: 21.1%" title="2024: +10.0%"></span>
+            <span class="is-sealed" style="--h: 11.6%" title="2025 (sealed): +5.5%"></span>
+            <span class="is-sealed" style="--h: 24.9%" title="2026 (sealed): +11.8%"></span>
+          </div>
+          <dl class="cs-model-facts">
+            <div><dt>Trades</dt><dd>2,070</dd></div>
+            <div><dt>Profitable seasons</dt><dd>4 of 4</dd></div>
+            <div><dt>Sealed return</dt><dd>+7.3%</dd></div>
+            <div><dt>Avg entry price</dt><dd>44&cent;</dd></div>
+          </dl>
+        </div>
+
+        <p class="cs-models-note">
+          Return per contract at closing prices, flat position size. Bars show each season on one shared scale;
+          <span class="cs-key-sealed"></span> sealed seasons were held back and only scored once the model was final.
+          Hover a bar for the figure.
+        </p>
+
+      </section>
+
+
+      <!--
+        - #IN SHORT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">In Short</h2>
+
+        <div class="cs-brief">
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The problem</p>
+            <p>
+              Prediction market prices already reflect most public information. A model only adds value where its
+              probability is both different from the market's and more accurate, and that is hard to prove.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">What I built</p>
+            <p>
+              Three models, for WNBA winners, WNBA points spreads and MLB winners. Each prices every game, compares
+              it with the market, and flags only the contracts where the gap is large enough to matter.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The result</p>
+            <p>
+              3,600+ trades across nine seasons of testing, all three models profitable, including on the final
+              seasons that were kept sealed until the models were finished.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #HOW IT WORKS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">How It Works</h2>
+
+        <figure class="cs-layers" aria-label="Pipeline: game and market data, features, three models, edge against the market price, position sizing, and a live dashboard">
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Data</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Game &amp; player stats</span>
+              <span class="cs-node">Injuries</span>
+              <span class="cs-node">Market prices</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Features</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Elo ratings</span>
+              <span class="cs-node">Lineup strength</span>
+              <span class="cs-node">Pitching &amp; form</span>
+            </div>
+          </div>
+
+          <div class="cs-layer is-hub">
+            <p class="cs-layer-name">Models</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">LightGBM</span>
+              <span class="cs-node">Ridge classifier</span>
+              <span class="cs-node">Paired logistic models</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Edge</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Model probability vs fair market price</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Size</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Fractional Kelly positions</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Serve</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Hourly on GitHub Actions</span>
+              <span class="cs-node">Supabase</span>
+              <span class="cs-node">Live dashboard</span>
+            </div>
+          </div>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #KEY DECISIONS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Key Decisions</h2>
+
+        <div class="cs-decisions">
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Judge models on return, not accuracy</h3>
+            <p>Across 27 candidate models, accuracy (AUC) had almost no link to profit. Every change had to improve out-of-sample return to ship.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> slower iteration, since each idea needs a full backtest.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Walk-forward, with sealed seasons</h3>
+            <p>Each season is predicted only by a model trained on earlier ones, and the final seasons stay untouched until the end.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> less data to tune on, in exchange for honest results.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Agreement as the filter (MLB)</h3>
+            <p>Two models must both see value on the same side. Alone they returned +1.4% and &minus;4.2% on sealed seasons; together, +7.3%.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> fewer trades, only about one game in four.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Simple models where the signal is weak</h3>
+            <p>For spreads, a regularised linear model beat LightGBM, and position sizes use a cautious fraction of Kelly to keep drawdowns survivable.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> smaller positions mean slower growth in good seasons.</p>
+          </div>
+
+        </div>
+
+        <details class="cs-details">
+          <summary>See how confident each result is</summary>
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">Sealed seasons</th>
+                  <th scope="col" class="num">Sealed trades</th>
+                  <th scope="col" class="num">Sealed return</th>
+                  <th scope="col" class="num">95% interval</th>
+                  <th scope="col" class="num">P(profit)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>WNBA moneyline</td>
+                  <td>2025&ndash;2026</td>
+                  <td class="num">169</td>
+                  <td class="num">+29.7%</td>
+                  <td class="num">+4.9% to +55.7%</td>
+                  <td class="num">99%</td>
+                </tr>
+                <tr>
+                  <td>WNBA spread</td>
+                  <td>2024&ndash;2026</td>
+                  <td class="num">435</td>
+                  <td class="num">+8.7%</td>
+                  <td class="num">&minus;0.1% to +17.4%</td>
+                  <td class="num">97%</td>
+                </tr>
+                <tr>
+                  <td>MLB moneyline</td>
+                  <td>2025&ndash;2026</td>
+                  <td class="num">905</td>
+                  <td class="num">+7.3%</td>
+                  <td class="num">&minus;0.7% to +15.8%</td>
+                  <td class="num">96%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+      </section>
+
+
+      <!--
+        - #TECH STACK
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tech Stack</h2>
+
+        <ul class="cs-tags">
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">pandas</li>
+          <li class="skill-tag">LightGBM</li>
+          <li class="skill-tag">XGBoost</li>
+          <li class="skill-tag">scikit-learn</li>
+          <li class="skill-tag">Optuna</li>
+          <li class="skill-tag">Supabase (Postgres)</li>
+          <li class="skill-tag">GitHub Actions</li>
+          <li class="skill-tag">React</li>
+          <li class="skill-tag">Kalshi API</li>
+        </ul>
+
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cs-cta">
+
+        <h2 class="cs-cta-title">Want a model judged on what it earns?</h2>
+
+        <p>I build predictive models that are tested on real-world outcomes, not just accuracy scores.</p>
+
+        <a href="../index.html#contact" class="cs-cta-btn">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+          <span>Get in touch</span>
+        </a>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

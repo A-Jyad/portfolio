@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Revolution RE Financial Forecasting - Ahmed Jyad</title>
+  <meta name="description" content="Case study: the forecasting engine behind Revolution RE's client tool. Clients enter a multifamily property's key characteristics and get a full monthly P&L with validated 95% ranges.">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/case-study.css">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cs-page">
+
+    <a href="../index.html#portfolio" class="cs-back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <span>Back to portfolio</span>
+    </a>
+
+    <article class="cs-article">
+
+      <!--
+        - #HERO
+      -->
+
+      <header class="cs-hero">
+
+        <p class="cs-eyebrow">Case Study &middot; Machine Learning</p>
+
+        <h1 class="cs-title">
+          A full property P&amp;L from a few key details, with a range you can trust
+        </h1>
+
+        <p class="cs-lede">
+          Revolution RE wanted to give its clients instant financial estimates for multifamily properties. I built
+          the forecasting engine behind it: a client enters their property's key characteristics and gets a complete
+          monthly P&amp;L, with realistic ranges tested against real properties.
+        </p>
+
+        <dl class="cs-meta">
+          <div class="cs-meta-item">
+            <dt>Client</dt>
+            <dd>Revolution RE</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Industry</dt>
+            <dd>Multifamily real estate, US</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Role</dt>
+            <dd>Freelance Data Scientist</dd>
+          </div>
+          <div class="cs-meta-item">
+            <dt>Timeline</dt>
+            <dd>2025 &mdash; 2026</dd>
+          </div>
+        </dl>
+
+      </header>
+
+
+      <!--
+        - #SAMPLE ESTIMATE
+      -->
+
+      <dl class="cs-strip" aria-label="What sits behind each estimate">
+        <div><dt>~95</dt><dd>lines per estimate</dd></div>
+        <div><dt>24</dt><dd>months, month by month</dd></div>
+        <div><dt>7</dt><dd>US metros covered</dd></div>
+        <div><dt>1,000+</dt><dd>properties behind the model</dd></div>
+      </dl>
+
+      <figure class="cs-estimate" aria-label="Sample estimate: a client enters property details and receives estimates with 95% ranges">
+
+        <div class="cs-estimate-in">
+          <p class="cs-estimate-label">Client enters</p>
+          <dl class="cs-estimate-inputs">
+            <div><dt>Metro</dt><dd>Phoenix, AZ</dd></div>
+            <div><dt>Units</dt><dd>200</dd></div>
+            <div><dt>Avg unit size</dt><dd>900 sq ft</dd></div>
+            <div><dt>Year built</dt><dd>2015</dd></div>
+          </dl>
+        </div>
+
+        <ion-icon class="cs-estimate-arrow" name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+
+        <div class="cs-estimate-out">
+          <p class="cs-estimate-label">Client gets <span>per unit, per month &middot; next 12 months</span></p>
+
+          <div class="cs-estimate-rows">
+
+            <div class="cs-estimate-row">
+              <span class="cs-estimate-metric">Market rent</span>
+              <strong class="cs-estimate-value">$1,669</strong>
+              <span class="cs-range" style="--pt: 44%" aria-label="95% range $1,319 to $2,111"><span></span></span>
+              <span class="cs-estimate-range">$1,319 &ndash; $2,111</span>
+            </div>
+
+            <div class="cs-estimate-row">
+              <span class="cs-estimate-metric">Management fees</span>
+              <strong class="cs-estimate-value">$53</strong>
+              <span class="cs-range" style="--pt: 40%" aria-label="95% range $36 to $79"><span></span></span>
+              <span class="cs-estimate-range">$36 &ndash; $79</span>
+            </div>
+
+            <div class="cs-estimate-row">
+              <span class="cs-estimate-metric">Real estate taxes</span>
+              <strong class="cs-estimate-value">$94</strong>
+              <span class="cs-range" style="--pt: 48%" aria-label="95% range $0 to $196"><span></span></span>
+              <span class="cs-estimate-range">$0 &ndash; $196</span>
+            </div>
+
+            <div class="cs-estimate-row is-key">
+              <span class="cs-estimate-metric">Net operating income</span>
+              <strong class="cs-estimate-value">$1,510</strong>
+              <span class="cs-range" style="--pt: 15%" aria-label="95% range $1,206 to $3,212"><span></span></span>
+              <span class="cs-estimate-range">$1,206 &ndash; $3,212</span>
+            </div>
+
+          </div>
+
+          <p class="cs-estimate-more">+ every other income and expense line, month by month</p>
+        </div>
+
+        <figcaption class="cs-caption">Real output from the model for an example property. The bar shows the 95% range, the dot the estimate.</figcaption>
+
+      </figure>
+
+
+      <!--
+        - #IN SHORT
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">In Short</h2>
+
+        <div class="cs-brief">
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The problem</p>
+            <p>
+              Revolution RE's clients wanted to know how a multifamily property should perform: its expected rent,
+              expenses and profit, and how far reality could stray from that, without a lengthy analysis.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">What I built</p>
+            <p>
+              A model built on data from more than 1,000 US apartment buildings and tested on 441 of them. A client enters their
+              property's characteristics, such as unit count, unit size and age, and gets every income and expense line, up to NOI and cash
+              flow.
+            </p>
+          </div>
+
+          <div class="cs-brief-item">
+            <p class="cs-brief-label">The result</p>
+            <p>
+              Clients get an estimate on demand, and each one comes with a 95% range that was checked against what
+              real properties actually earned.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #PROOF
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tested Against Reality</h2>
+
+        <p>
+          A forecast range is only useful if it is honest. I tested the model on 441 properties and 11,067 months of
+          real results. A trustworthy 95% range should contain the actual figure about 95% of the time, and the key
+          P&amp;L lines land right on that target:
+        </p>
+
+        <figure class="cs-chart" aria-labelledby="cov-chart-title">
+
+          <p class="cs-chart-title" id="cov-chart-title">How often the actual figure fell inside the 95% range</p>
+
+          <div class="cs-dotplot" role="list">
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 96.6% · avg range width $4,416/unit">
+              <span class="cs-dot-label">Cash flow</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 77.33%"></span></span>
+              <span class="cs-dot-value">96.6%</span>
+            </div>
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 95.0% · avg range width $3,132/unit">
+              <span class="cs-dot-label">Net operating income</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 66.67%"></span></span>
+              <span class="cs-dot-value">95.0%</span>
+            </div>
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 94.8% · avg range width $1,353/unit">
+              <span class="cs-dot-label">Operating expenses</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 65.33%"></span></span>
+              <span class="cs-dot-value">94.8%</span>
+            </div>
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 93.0% · avg range width $2,915/unit">
+              <span class="cs-dot-label">Operating revenue</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 53.33%"></span></span>
+              <span class="cs-dot-value">93.0%</span>
+            </div>
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 91.7% · avg range width $1,169/unit">
+              <span class="cs-dot-label">Market rent</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 44.67%"></span></span>
+              <span class="cs-dot-value">91.7%</span>
+            </div>
+
+            <div class="cs-dot-row" role="listitem" tabindex="0" data-tip="Coverage 90.8% · avg range width $249/unit">
+              <span class="cs-dot-label">Real estate taxes</span>
+              <span class="cs-dot-track"><span class="cs-dot" style="--pos: 38.67%"></span></span>
+              <span class="cs-dot-value">90.8%</span>
+            </div>
+
+            <div class="cs-dot-axis" aria-hidden="true">
+              <span></span>
+              <span class="cs-dot-ticks">
+                <span style="--pos: 0%">85%</span>
+                <span style="--pos: 33.33%">90%</span>
+                <span style="--pos: 66.67%" class="is-target">95% target</span>
+                <span style="--pos: 100%">100%</span>
+              </span>
+              <span></span>
+            </div>
+
+          </div>
+
+          <figcaption class="cs-caption">441 properties, 11,067 property-months. Axis starts at 85%. Hover a row for the range width.</figcaption>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #HOW IT WORKS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">How It Works</h2>
+
+        <figure class="cs-layers" aria-label="Pipeline: property reports from S3 are cleaned, market rent is modelled first, then every line item, then totals are built up and served">
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Data</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Monthly financials, AWS S3</span>
+              <span class="cs-node">Property reports</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Clean</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Finance codes mapped</span>
+              <span class="cs-node">Stabilised properties only</span>
+            </div>
+          </div>
+
+          <div class="cs-layer is-hub">
+            <p class="cs-layer-name">Anchor</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Market rent model</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Line items</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Mixed effects</span>
+              <span class="cs-node">LightGBM</span>
+              <span class="cs-node">Yearly regression</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Totals</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Gross rent &rarr; NOI &rarr; cash flow</span>
+            </div>
+          </div>
+
+          <div class="cs-layer">
+            <p class="cs-layer-name">Serve</p>
+            <div class="cs-layer-nodes">
+              <span class="cs-node">Forecast + 95% range</span>
+              <span class="cs-node">Estimate grids to S3</span>
+              <span class="cs-node">Client-facing tool</span>
+            </div>
+          </div>
+
+        </figure>
+
+      </section>
+
+
+      <!--
+        - #KEY DECISIONS
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Key Decisions</h2>
+
+        <div class="cs-decisions">
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Anchor everything on market rent</h3>
+            <p>Rent drives most other lines, so it is modelled first with a mixed effects model and fed into every other model.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> errors in rent carry downstream, so the ranges account for them.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">The right model for each metric</h3>
+            <p>Common lines, rare lines and annual bills such as taxes each get the model type that suits them.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> three model families to maintain instead of one.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Build totals from the lines</h3>
+            <p>NOI and cash flow are calculated from the forecast lines, and the downside case pairs low income with high costs.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> ranges on totals are deliberately conservative.</p>
+          </div>
+
+          <div class="cs-decision">
+            <h3 class="cs-step-title">Judge the ranges, not just the fit</h3>
+            <p>Success meant the actual figure landing inside the 95% range about 95% of the time, not a high accuracy score.</p>
+            <p class="cs-tradeoff"><strong>Trade-off:</strong> rare, one-off items are flagged as directional only.</p>
+          </div>
+
+        </div>
+
+        <details class="cs-details">
+          <summary>See how each metric is modelled</summary>
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col">When the metric is&hellip;</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Market rent</td>
+                  <td>Log mixed effects (anchor)</td>
+                  <td>Primary driver, used as an input everywhere else</td>
+                </tr>
+                <tr>
+                  <td>Non-zero in &ge; 80% of months</td>
+                  <td>Log mixed effects</td>
+                  <td>Present almost everywhere, scales with rent and size</td>
+                </tr>
+                <tr>
+                  <td>Non-zero in 10&ndash;80% of months</td>
+                  <td>LightGBM + bootstrap ranges</td>
+                  <td>Intermittent values, handled by a regularised tree model</td>
+                </tr>
+                <tr>
+                  <td>Taxes and bad debt</td>
+                  <td>Regression on yearly averages</td>
+                  <td>Billed annually or irregularly</td>
+                </tr>
+                <tr>
+                  <td>Non-zero in &lt; 10% of months</td>
+                  <td>Excluded</td>
+                  <td>Too sparse to model reliably</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="cs-details">
+          <summary>See coverage for all 78 metrics</summary>
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col">Metric</th>
+                  <th scope="col" class="num">Coverage</th>
+                  <th scope="col" class="num">Avg range width / unit</th>
+                  <th scope="col">Model</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>income_vacancy</code></td><td class="num cs-cov-good">97.0%</td><td class="num">$1,224</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>cash_flow</code></td><td class="num cs-cov-good">96.6%</td><td class="num">$4,416</td><td>Aggregate</td></tr>
+                <tr><td><code>net_operating_income_after_debt_service</code></td><td class="num cs-cov-good">96.1%</td><td class="num">$3,608</td><td>Aggregate</td></tr>
+                <tr><td><code>income_pet</code></td><td class="num cs-cov-good">95.8%</td><td class="num">$16</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>net_operating_income</code></td><td class="num cs-cov-good">95.0%</td><td class="num">$3,132</td><td>Aggregate</td></tr>
+                <tr><td><code>total_operating_expenses</code></td><td class="num cs-cov-good">94.8%</td><td class="num">$1,353</td><td>Aggregate</td></tr>
+                <tr><td><code>expense_trash_removal</code></td><td class="num cs-cov-good">94.8%</td><td class="num">$141</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_office_expenses</code></td><td class="num cs-cov-good">94.2%</td><td class="num">$35</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>net_rental_income</code></td><td class="num cs-cov-good">94.1%</td><td class="num">$2,791</td><td>Aggregate</td></tr>
+                <tr><td><code>income_misc_other_income</code></td><td class="num cs-cov-good">93.9%</td><td class="num">$630</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_management_fees</code></td><td class="num cs-cov-good">93.7%</td><td class="num">$66</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_maintenance_salary</code></td><td class="num cs-cov-good">93.6%</td><td class="num">$93</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_repair_costs</code></td><td class="num cs-cov-good">93.6%</td><td class="num">$226</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_security</code></td><td class="num cs-cov-good">93.5%</td><td class="num">$114</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_concessions</code></td><td class="num cs-cov-good">93.4%</td><td class="num">$636</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>gross_potential_rent</code></td><td class="num cs-cov-good">93.3%</td><td class="num">$1,759</td><td>Aggregate</td></tr>
+                <tr><td><code>total_operating_revenue</code></td><td class="num cs-cov-good">93.0%</td><td class="num">$2,915</td><td>Aggregate</td></tr>
+                <tr><td><code>expense_pest_control</code></td><td class="num cs-cov-good">92.9%</td><td class="num">$10</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_marketing</code></td><td class="num cs-cov-good">92.7%</td><td class="num">$24</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_seo</code></td><td class="num cs-cov-good">92.1%</td><td class="num">$60</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_landscaping</code></td><td class="num cs-cov-good">91.8%</td><td class="num">$77</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_market_rent</code></td><td class="num cs-cov-good">91.7%</td><td class="num">$1,169</td><td>Singular Model</td></tr>
+                <tr><td><code>income_late_charges</code></td><td class="num cs-cov-good">91.2%</td><td class="num">$36</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_unit_turnover</code></td><td class="num cs-cov-good">91.2%</td><td class="num">$124</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_cleaning_fees</code></td><td class="num cs-cov-good">91.2%</td><td class="num">$53</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_cable</code></td><td class="num cs-cov-good">91.1%</td><td class="num">$86</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_real_estate_taxes</code></td><td class="num cs-cov-good">90.8%</td><td class="num">$249</td><td>Monthly Regression</td></tr>
+                <tr><td><code>expense_water</code></td><td class="num cs-cov-good">90.8%</td><td class="num">$176</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_advertising</code></td><td class="num cs-cov-good">90.3%</td><td class="num">$4</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_training</code></td><td class="num cs-cov-good">90.1%</td><td class="num">$7</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_payroll_taxes_benefits</code></td><td class="num cs-cov-ok">89.8%</td><td class="num">$35</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_rubs_trash</code></td><td class="num cs-cov-ok">89.6%</td><td class="num">$280</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_electricity</code></td><td class="num cs-cov-ok">89.4%</td><td class="num">$89</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_insurance</code></td><td class="num cs-cov-ok">89.4%</td><td class="num">$86</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_dues_subscriptions</code></td><td class="num cs-cov-ok">89.0%</td><td class="num">$30</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_bonuses_commissions</code></td><td class="num cs-cov-ok">88.8%</td><td class="num">$40</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_technology_allocation</code></td><td class="num cs-cov-ok">88.8%</td><td class="num">$11</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_admin_fees</code></td><td class="num cs-cov-ok">88.0%</td><td class="num">$57</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_broker_commissions</code></td><td class="num cs-cov-ok">87.4%</td><td class="num">$18</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_other_utilities</code></td><td class="num cs-cov-ok">86.5%</td><td class="num">$9</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_miscellaneous_expenses</code></td><td class="num cs-cov-ok">86.1%</td><td class="num">$29</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_manager_salary</code></td><td class="num cs-cov-ok">85.4%</td><td class="num">$53</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_non_income_units</code></td><td class="num cs-cov-ok">84.5%</td><td class="num">$19</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_leasing_agent_salary</code></td><td class="num cs-cov-ok">83.9%</td><td class="num">$45</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_other_contract_services</code></td><td class="num cs-cov-ok">82.1%</td><td class="num">$5</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_gas</code></td><td class="num cs-cov-ok">80.7%</td><td class="num">$30</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_plumbing</code></td><td class="num cs-cov-ok">79.8%</td><td class="num">$53</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_hvac_maintenance</code></td><td class="num cs-cov-ok">79.5%</td><td class="num">$67</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>expense_pool_maintenance</code></td><td class="num cs-cov-ok">78.0%</td><td class="num">$26</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_parking</code></td><td class="num cs-cov-ok">77.8%</td><td class="num">$142</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_bad_debt</code></td><td class="num cs-cov-low">53.3%</td><td class="num">$20</td><td>Monthly Regression</td></tr>
+                <tr><td><code>expense_legal_fees</code></td><td class="num cs-cov-low">49.9%</td><td class="num">$25</td><td>Log Mixed Effects</td></tr>
+                <tr><td><code>income_gain_loss_to_lease</code></td><td class="num cs-cov-low">16.7%</td><td class="num">$5</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_partnership_expenses</code></td><td class="num cs-cov-low">16.3%</td><td class="num">$5</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_amortization</code></td><td class="num cs-cov-low">14.4%</td><td class="num">$11</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_meals_entertainment</code></td><td class="num cs-cov-low">13.2%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_contract_maintenance</code></td><td class="num cs-cov-low">10.7%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_parking_maintenance</code></td><td class="num cs-cov-low">10.2%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_electricity</code></td><td class="num cs-cov-low">10.0%</td><td class="num">$2</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_elevator_maintenance</code></td><td class="num cs-cov-low">8.4%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_damages_reimbursement</code></td><td class="num cs-cov-low">6.9%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_gas</code></td><td class="num cs-cov-low">6.8%</td><td class="num">$1</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_application_fees</code></td><td class="num cs-cov-low">6.8%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_license_permits</code></td><td class="num cs-cov-low">6.2%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_short_term_premiums</code></td><td class="num cs-cov-low">5.9%</td><td class="num">$1</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_employee_units</code></td><td class="num cs-cov-low">5.8%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_termination_fees</code></td><td class="num cs-cov-low">5.2%</td><td class="num">$3</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_community_fees</code></td><td class="num cs-cov-low">5.2%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_utility_other</code></td><td class="num cs-cov-low">4.9%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_pest</code></td><td class="num cs-cov-low">3.6%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_interest</code></td><td class="num cs-cov-low">3.4%</td><td class="num">$77</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_water</code></td><td class="num cs-cov-low">3.3%</td><td class="num">$3</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_website</code></td><td class="num cs-cov-low">3.2%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_storage</code></td><td class="num cs-cov-low">2.9%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_rubs_cable</code></td><td class="num cs-cov-low">2.7%</td><td class="num">$4</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>income_laundry_vending</code></td><td class="num cs-cov-low">2.3%</td><td class="num">$0</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_amenities</code></td><td class="num cs-cov-low">2.2%</td><td class="num">$1</td><td>Non Linear Gradient</td></tr>
+                <tr><td><code>expense_depreciation</code></td><td class="num cs-cov-low">0.0%</td><td class="num">$28</td><td>Non Linear Gradient</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+      </section>
+
+
+      <!--
+        - #TECH STACK
+      -->
+
+      <section class="cs-section">
+
+        <h2 class="h2 article-title">Tech Stack</h2>
+
+        <ul class="cs-tags">
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">pandas</li>
+          <li class="skill-tag">statsmodels (MixedLM)</li>
+          <li class="skill-tag">LightGBM</li>
+          <li class="skill-tag">scikit-learn</li>
+          <li class="skill-tag">AWS S3</li>
+          <li class="skill-tag">boto3</li>
+          <li class="skill-tag">matplotlib</li>
+        </ul>
+
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cs-cta">
+
+        <h2 class="cs-cta-title">Need forecasts you can put a number on?</h2>
+
+        <p>I build models that report their own uncertainty honestly, so you know how far to trust them.</p>
+
+        <a href="../index.html#contact" class="cs-cta-btn">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+          <span>Get in touch</span>
+        </a>
+
+      </section>
+
+    </article>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
